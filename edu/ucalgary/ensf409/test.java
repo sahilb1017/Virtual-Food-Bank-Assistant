@@ -48,7 +48,7 @@ public class test {
             expectedHamper.add(hamper2);
             expectedHamper.add(hamper3);
 
-            public Order = testOrder = new Order();
+            public Order testOrder = new Order();
 
             testOrder.addHamper(correctInput1);
             testOrder.addHamper(correctInput2);
