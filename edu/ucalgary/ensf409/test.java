@@ -1,5 +1,5 @@
 package edu.ucalgary.ensf409;
 
 public class test {
-    System.out.println("yo");
+    System.out.println("hi");
 }
