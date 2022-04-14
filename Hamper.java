@@ -12,13 +12,15 @@ public class Hamper {
 
     private HamperInventory inventory;
 
-    public Hamper(int[] list){
+    public Hamper(int[] list) throws ItemNotFoundException, NotEnoughFoodException{
+     
         this.numOfMaleAdults=list[0];
         this.numOfFemaleAdults=list[1];
         this.numOfChildOver8 = list[2];
         this.numOfChildUnder8 = list[3];
         calculateTotals();
         inventory = new HamperInventory(total);
+        inventory.determineFoodNeeded();
     }
 
     public int getNumMaleAdults(){
@@ -52,10 +54,9 @@ public class Hamper {
         ChildOver8Nutrients childOver8 = new ChildOver8Nutrients(this.numOfChildOver8);
         ChildUnder8Nutrients childUnder8 = new ChildUnder8Nutrients(this.numOfChildUnder8);
 
-        total.addToCalories(maleAdult.getCalories()*numOfMaleAdults);
-        total.addToCalories(femaleAdult.getCalories()*numOfFemaleAdults);
-        total.addToCalories(childOver8.getCalories()*numOfChildOver8);
-        total.addToCalories(childUnder8.getCalories()*numOfChildUnder8);
+        
+
+  
 
         total.addToGrain(maleAdult.getWholeGrains()*numOfMaleAdults);
         total.addToGrain(femaleAdult.getWholeGrains()*numOfFemaleAdults);
@@ -68,17 +69,21 @@ public class Hamper {
         total.addToProtein(childOver8.getProteins()*numOfChildOver8);
         total.addToProtein(childUnder8.getProteins()*numOfChildUnder8);
 
+        
+
         total.addToFV(maleAdult.getFruitsVeggies()*numOfMaleAdults);
         total.addToFV(femaleAdult.getFruitsVeggies()*numOfFemaleAdults);
         total.addToFV(childOver8.getFruitsVeggies()*numOfChildOver8);
         total.addToFV(childUnder8.getFruitsVeggies()*numOfChildUnder8);
 
+       
 
         total.addToOther(maleAdult.getOthers()*numOfMaleAdults);
         total.addToOther(femaleAdult.getOthers()*numOfFemaleAdults);
         total.addToOther(childOver8.getOthers()*numOfChildOver8);
         total.addToOther(childUnder8.getOthers()*numOfChildUnder8);
 
+       
 
 
         

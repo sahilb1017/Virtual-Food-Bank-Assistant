@@ -26,6 +26,11 @@ public class MaleAdultNutrients extends Nutrients{
 
     protected void findInfoFromDataBase(){
 
+        this.setFV(200);
+        this.setWholeGrain(200);
+        this.setother(200);
+        this.setProtein(200);
+
     }
 
     

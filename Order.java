@@ -5,15 +5,17 @@ import java.util.*;
 
 public class Order {
     
-    private ArrayList<Hamper> hampers;
+    private ArrayList<Hamper> hampers = new ArrayList<Hamper>();
 
     public Order(){
 
     }
 
-    public void addHamper(int List[]){
+    public void addHamper(int List[]) throws ItemNotFoundException, NotEnoughFoodException{
 
+        
         hampers.add(new Hamper(List));
+        
     }
 
     public ArrayList<Hamper> getHampers(){
@@ -27,5 +29,7 @@ public class Order {
     public Hamper getHamper(int index){
         return this.hampers.get(index);
     }
+
+
 
 }

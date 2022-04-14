@@ -24,6 +24,10 @@ public class ChildUnder8Nutrients extends Nutrients{
 
 
     protected void findInfoFromDataBase(){
-        
+        this.setFV(50);
+        this.setWholeGrain(50);
+        this.setother(50);
+        this.setProtein(50);
+
     }
 }

@@ -10,11 +10,11 @@ public class PrintOrder {
         
         int counter = 1;
 
-        FileWriter myWriter = new FileWriter("OrderForm.txt");
+        FileWriter myWriter = new FileWriter("edu/ucalgary/ensf409/OrderForm.txt");
         myWriter.write("Hamper Order Form"+"\n");
         myWriter.write("\n");
-        myWriter.write("Name"+"\n");
-        myWriter.write("Date"+"\n");
+        myWriter.write("Name:"+"\n");
+        myWriter.write("Date:"+"\n");
         myWriter.write("\n");
         myWriter.write("Original Request"+ "\n");
 
@@ -57,19 +57,21 @@ public class PrintOrder {
 
             
 
-            myWriter.write("Hamper "+ Integer.toString(counter++) +"Items"+"\n");
+            myWriter.write("Hamper "+ Integer.toString(counter++) +" Items"+"\n");
             
 
             Iterator<ArrayList<String>> iter = hmp.getInventory().getAllFood().iterator();
             
             while(iter.hasNext()){
                 ArrayList<String> current = iter.next();
-                myWriter.write(current.get(0)+"\t"+ current.get(1) + "\n" );
+                myWriter.write(current.get(1)+"\t\t"+ current.get(0) + "\n" );
             }
             
             myWriter.write("\n");
 
-            }
+            
+        }
+        myWriter.close();
 
 
         }catch(IOException e){}
