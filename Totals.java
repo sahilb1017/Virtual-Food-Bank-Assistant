@@ -37,22 +37,22 @@ public class Totals {
         return this.totalCalories;
     }
 
-    public void addToGrain(int amount){
+    public void addToGrain(double amount){
         this.totalGrains+=amount;
     }
-    public void addToProtein(int amount){
+    public void addToProtein(double amount){
         this.totalProteins+=amount;
     }
 
-    public void addToFV(int amount){
+    public void addToFV(double amount){
         this.totalFV+=amount;
     }
 
-    public void addToOther(int amount){
+    public void addToOther(double amount){
         this.totalOther+=amount;
     }
 
-    public void addToCalories(int amount){
+    public void addToCalories(double amount){
         this.totalCalories+=amount;
     }
 

@@ -25,7 +25,11 @@ public class FemaleAdultNutrients extends Nutrients{
 
 
     protected void findInfoFromDataBase(){
-        
+        this.setFV(150);
+        this.setWholeGrain(150);
+        this.setother(150);
+        this.setProtein(150);
+
     }
 
     
