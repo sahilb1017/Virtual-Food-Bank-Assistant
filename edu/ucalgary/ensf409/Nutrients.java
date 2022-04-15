@@ -49,7 +49,7 @@ public abstract class Nutrients {
     public void setCalories(double calories){
         this.calories = calories;
     }
-
+ 
     public Database getDB(){
         return this.db;
     }

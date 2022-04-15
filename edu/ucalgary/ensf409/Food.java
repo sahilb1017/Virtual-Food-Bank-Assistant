@@ -13,7 +13,7 @@ public class Food extends Nutrients{
         this.ITEMID = ItemID;
         this.ITEMNAME = ItemName;
     }
-
+ 
     public int getItemID(){
         return ITEMID;
     }

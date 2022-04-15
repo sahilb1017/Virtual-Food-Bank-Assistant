@@ -92,7 +92,7 @@ public class HamperInventory{
             this.allFood.add(temp);
         }
     }
-
+ 
         
     private void checkException(ArrayList<Food[]> hampersList) throws NotEnoughFoodException{
         int counter = 0;

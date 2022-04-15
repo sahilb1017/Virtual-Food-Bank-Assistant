@@ -7,7 +7,7 @@ public class MaleAdultNutrients extends Nutrients{
         this.numMales = amount;
         findInfoFromDataBase();
     }
-
+ 
     public int getNumMales(){
         return this.numMales;
     }

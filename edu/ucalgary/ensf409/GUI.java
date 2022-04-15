@@ -140,7 +140,7 @@ public class GUI extends JFrame implements ActionListener{
         maleInput.setPreferredSize(new Dimension(70, 29));
         maleInput.setHorizontalAlignment(JTextField.CENTER);
         maleInput.setBorder(BorderFactory.createLineBorder(new Color(190, 171, 123),2));
-
+ 
         femaleInput.setBackground(new Color(230, 211, 163));
         femaleInput.setFont(new Font("Myanmar Text", 1, 15)); 
         femaleInput.setForeground(new Color(123, 106, 62));

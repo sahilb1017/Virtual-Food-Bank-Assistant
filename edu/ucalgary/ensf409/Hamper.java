@@ -49,7 +49,7 @@ public class Hamper {
         FemaleAdultNutrients femaleAdult = new FemaleAdultNutrients(this.numOfFemaleAdults);
         ChildOver8Nutrients childOver8 = new ChildOver8Nutrients(this.numOfChildOver8);
         ChildUnder8Nutrients childUnder8 = new ChildUnder8Nutrients(this.numOfChildUnder8);
-
+ 
         this.total.addToGrain(maleAdult.getWholeGrains());
         this.total.addToGrain(femaleAdult.getWholeGrains());
         this.total.addToGrain(childOver8.getWholeGrains());

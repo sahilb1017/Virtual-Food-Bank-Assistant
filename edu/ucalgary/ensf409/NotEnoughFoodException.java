@@ -7,3 +7,4 @@ public class NotEnoughFoodException extends Exception{
     }
     
 }
+ 

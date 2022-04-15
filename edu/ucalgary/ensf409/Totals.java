@@ -1,5 +1,5 @@
 package edu.ucalgary.ensf409;
-
+ 
 public class Totals {
     private double totalGrains = 0;
     private double totalProteins = 0;
