@@ -4,6 +4,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 import java.awt.event.ActionEvent;
 
 public class GUI extends JFrame implements ActionListener{
@@ -412,23 +413,31 @@ public class GUI extends JFrame implements ActionListener{
         childrenUnder8Input.setText("");
     }    
     
-    private void submitOrderButtonPressed(ActionEvent e) {                                                  
-    }   
+    private void submitOrderButtonPressed(ActionEvent e) {    
+        DefaultTableModel table = (DefaultTableModel)hamperOrderTable.getModel();
+        Vector<Vector> tableData = table.getDataVector();
+    
+        int[][] userData = new int[tableData.size()][4];
+        Order order = new Order();
 
-
-    public static void main(String args[]) {
-        try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (Exception ex) {
+        for(int i = 0; i < tableData.size(); i++){
+            for(int j = 0; j < tableData.get(i).size(); j++)
+                userData[i][j] = (int)tableData.get(i).get(j);
         } 
 
-        EventQueue.invokeLater(() -> {
-                new GUI().setVisible(true);
-        });
-    }             
+        try{
+            for(int i = 0; i < userData.length; i++)
+                order.addHamper(userData[i]);  
+        }
+        catch(Exception er){
+            JOptionPane.showMessageDialog(this, "There are no hampers to fulfill your requirements. Please check back later!","Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        JOptionPane.showMessageDialog(this, "Order Successful!");
+
+        PrintOrder print = new PrintOrder(order);
+
+        
+
+    }            
 }

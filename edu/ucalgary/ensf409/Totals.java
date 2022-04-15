@@ -1,45 +1,38 @@
 package edu.ucalgary.ensf409;
 
 public class Totals {
-
     private double totalGrains = 0;
-
     private double totalProteins = 0;
-
     private double totalFV = 0;
-
     private double totalOther = 0;
-
     private double totalCalories = 0;
 
-    public Totals(){
-
-    }
+    public Totals(){}
 
     public double getTotalGrain(){
-
         return this.totalGrains;
     }
-    public double getTotalProtein(){
 
+    public double getTotalProtein(){
         return this.totalProteins;
     }
-    public double getTotalFV(){
 
+    public double getTotalFV(){
         return this.totalFV;
     }
-    public double getTotalOther(){
 
+    public double getTotalOther(){
         return this.totalOther;
     }
+    
     public double getTotalCalories(){
-
         return this.totalCalories;
     }
 
     public void addToGrain(double amount){
         this.totalGrains+=amount;
     }
+
     public void addToProtein(double amount){
         this.totalProteins+=amount;
     }
@@ -55,9 +48,4 @@ public class Totals {
     public void addToCalories(double amount){
         this.totalCalories+=amount;
     }
-
-
-
-    
-    
 }

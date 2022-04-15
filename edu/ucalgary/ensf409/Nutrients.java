@@ -1,62 +1,53 @@
 package edu.ucalgary.ensf409;
 
 public abstract class Nutrients {
-    private double WholeGrain;
-    private double FruitVeggies;
-    private double Proteins;
-    private double Others;
-    private double Calories;
+    private double wholeGrains;
+    private double fruitsVeggies;
+    private double proteins;
+    private double others;
+    private double calories;
 
-    public Nutrients(){
-
-    }
+    public Nutrients(){}
 
     public double getWholeGrains(){
-        return this.WholeGrain;
+        return this.wholeGrains;
     }
 
     public double getFruitsVeggies(){
-        return this.FruitVeggies;
+        return this.fruitsVeggies;
     }
 
     public double getProteins(){
-        return this.Proteins;
+        return this.proteins;
     }
 
     public double getOthers(){
-        return this.Others;
+        return this.others;
     }
 
     public double getCalories(){
-        return this.Calories;
+        return this.calories;
     }
 
-
-    public void setWholeGrain(double Grain){
-        this.WholeGrain = Grain;
+    public void setWholeGrain(double grain){
+        this.wholeGrains = grain;
     }
 
-
-    public void setFV(double FV){
-        this.FruitVeggies = FV;
+    public void setFruitsVeggies(double fruitsVeggies){
+        this.fruitsVeggies = fruitsVeggies;
     }
 
-    public void setProtein(double pr){
-        this.Proteins = pr;
+    public void setProtein(double protein){
+        this.proteins = protein;
     }
-
 
     public void setother(double other){
-        this.Others = other;
+        this.others = other;
     }
 
-    public void setCalories(double cal){
-        this.Calories = cal;
+    public void setCalories(double calories){
+        this.calories = calories;
     }
-
-
-
-
 
     abstract protected void findInfoFromDataBase();
 

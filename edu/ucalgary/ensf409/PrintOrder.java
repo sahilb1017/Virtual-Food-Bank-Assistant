@@ -33,12 +33,12 @@ public class PrintOrder {
                 temp+= Integer.toString(hmp.getNumFemaleAdults())+ " Adult Female, ";
             }
 
-            if(hmp.getNumofChildOver8()!=0){
-                temp += Integer.toString(hmp.getNumofChildOver8())+ " Child over 8, ";
+            if(hmp.getNumChildOver8()!=0){
+                temp += Integer.toString(hmp.getNumChildOver8())+ " Child over 8, ";
             }
 
-            if(hmp.getNumofChildUnder8()!=0){
-                temp += Integer.toString(hmp.getNumofChildUnder8())+ " Child under 8, ";
+            if(hmp.getNumChildUnder8()!=0){
+                temp += Integer.toString(hmp.getNumChildUnder8())+ " Child under 8, ";
             }
 
             temp = temp.replaceAll(", $", "");

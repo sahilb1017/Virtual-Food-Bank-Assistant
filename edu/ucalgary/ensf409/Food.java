@@ -2,26 +2,26 @@ package edu.ucalgary.ensf409;
 
 public class Food extends Nutrients{
 
-    private  String ItemName;
-    private  double ItemID;
+    private final String ITEMNAME;
+    private final int ITEMID;
 
-    public Food(double ItemID,String ItemName){
-        this.ItemID = ItemID;
-        this.ItemName = ItemName;
-
+    public Food(int ItemID,String ItemName){
+        this.ITEMID = ItemID;
+        this.ITEMNAME = ItemName;
     }
 
-    public double getItemID(){
-        return ItemID;
+    public int getItemID(){
+        return ITEMID;
     }
 
     public String getItemName(){
-        return ItemName;
+        return ITEMNAME;
     }
 
     protected void findInfoFromDataBase(){
         
     }
+
 
     
     
