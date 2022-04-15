@@ -21,11 +21,15 @@ public class ChildOver8Nutrients extends Nutrients{
         return ChildOver8Nutrients.CLIENTID;
     }
 
-
     protected void findInfoFromDataBase(){
-        this.setFruitsVeggies(100 * numChildOver8);
-        this.setWholeGrain(100 * numChildOver8);
-        this.setother(100 * numChildOver8);
-        this.setProtein(100 * numChildOver8);
+        Database db = this.getDB();
+        int[] values = db.getClientNeeds(ChildOver8Nutrients.CLIENTID);
+
+        this.setWholeGrain(((double)values[0] / 100) * values[4]* numChildOver8 * 7);
+        this.setFruitsVeggies(((double)values[1] / 100) * values[4]* numChildOver8 * 7);
+        this.setProtein(((double)values[2] / 100) * values[4]* numChildOver8 * 7);
+        this.setOther(((double)values[3] / 100) * values[4]* numChildOver8 * 7);
+        this.setCalories(values[4]);
+        db.close();
     }
 }
