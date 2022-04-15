@@ -20,11 +20,6 @@ public class HamperInventory{
         requiredNutrient[2] =  this.total.getTotalProtein();
         requiredNutrient[3] = this.total.getTotalOther();
 
-        System.out.println(requiredNutrient[0]);
-        System.out.println(requiredNutrient[1]);
-        System.out.println(requiredNutrient[2]);
-        System.out.println(requiredNutrient[3]);
-
         int numberOfFood = this.availableFoods.size();
         Food[] finalHamper = new Food[numberOfFood];
         // data base stuff;
@@ -110,7 +105,6 @@ public class HamperInventory{
             throw new NotEnoughFoodException();
     }
 
-        
     public ArrayList<ArrayList<String>> getAllFood(){
         return this.allFood;
     }

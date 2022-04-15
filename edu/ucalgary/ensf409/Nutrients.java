@@ -6,6 +6,7 @@ public abstract class Nutrients {
     private double proteins;
     private double others;
     private double calories;
+    private Database db = new Database();
 
     public Nutrients(){}
 
@@ -41,7 +42,7 @@ public abstract class Nutrients {
         this.proteins = protein;
     }
 
-    public void setother(double other){
+    public void setOther(double other){
         this.others = other;
     }
 
@@ -49,7 +50,10 @@ public abstract class Nutrients {
         this.calories = calories;
     }
 
+    public Database getDB(){
+        return this.db;
+    }
+    
     abstract protected void findInfoFromDataBase();
-
 }
 

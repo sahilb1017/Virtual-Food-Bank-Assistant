@@ -437,7 +437,8 @@ public class GUI extends JFrame implements ActionListener{
 
         PrintOrder print = new PrintOrder(order);
 
-        
+        order.removeFoodsDatabase();
 
+        table.setRowCount(0);
     }            
 }

@@ -13,6 +13,7 @@ public class ChildUnder8Nutrients extends Nutrients{
         return this.numChildUnder8;
     }
 
+    
     public void setNumChildUnder8(int amount){
         this.numChildUnder8 = amount;
     }

@@ -2,7 +2,6 @@ package edu.ucalgary.ensf409;
 import java.util.ArrayList;
 
 public class Hamper {
-    
     private int numOfMaleAdults;
     private int numOfFemaleAdults;
     private int numOfChildOver8;
@@ -55,24 +54,25 @@ public class Hamper {
         this.total.addToGrain(femaleAdult.getWholeGrains());
         this.total.addToGrain(childOver8.getWholeGrains());
         this.total.addToGrain(childUnder8.getWholeGrains());
-        System.out.println(this.total.getTotalGrain());
 
         this.total.addToProtein(maleAdult.getProteins());
         this.total.addToProtein(femaleAdult.getProteins());
         this.total.addToProtein(childOver8.getProteins());
         this.total.addToProtein(childUnder8.getProteins());
-        System.out.println(this.total.getTotalProtein());
 
-        this.total.addToFV(maleAdult.getFruitsVeggies());
+        this.total.addToFV(maleAdult.getFruitsVeggies());  
         this.total.addToFV(femaleAdult.getFruitsVeggies());
         this.total.addToFV(childOver8.getFruitsVeggies());
         this.total.addToFV(childUnder8.getFruitsVeggies());
-        System.out.println(this.total.getTotalFV());
 
-        this.total.addToOther(maleAdult.getOthers());
+        this.total.addToOther(maleAdult.getOthers());        
         this.total.addToOther(femaleAdult.getOthers());
         this.total.addToOther(childOver8.getOthers());
         this.total.addToOther(childUnder8.getOthers());
-        System.out.println(this.total.getTotalOther());
+
+        this.total.addToCalories(maleAdult.getCalories());        
+        this.total.addToCalories(femaleAdult.getCalories());
+        this.total.addToCalories(childOver8.getCalories());
+        this.total.addToCalories(childUnder8.getCalories());
     }
 }

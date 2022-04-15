@@ -1,9 +1,8 @@
 package edu.ucalgary.ensf409;
 public class MaleAdultNutrients extends Nutrients{
-
     private final static int CLIENTID = 1;
     private int numMales;
-
+    
     public MaleAdultNutrients(int amount){
         this.numMales = amount;
         findInfoFromDataBase();
@@ -22,10 +21,14 @@ public class MaleAdultNutrients extends Nutrients{
     }
 
     protected void findInfoFromDataBase(){
-        this.setFruitsVeggies(200 * numMales);
-        this.setWholeGrain(200* numMales);
-        this.setother(200* numMales);
-        this.setProtein(200* numMales);
-    }
+        Database db = this.getDB();
+        int[] values = db.getClientNeeds(MaleAdultNutrients.CLIENTID);
 
+        this.setWholeGrain(((double)values[0] / 100) * values[4]* numMales * 7);
+        this.setFruitsVeggies(((double)values[1] / 100) * values[4]* numMales * 7);
+        this.setProtein(((double)values[2] / 100) * values[4]* numMales * 7);
+        this.setOther(((double)values[3] / 100) * values[4]* numMales * 7);
+        this.setCalories(values[4]);
+        db.close();
+    }
 }
