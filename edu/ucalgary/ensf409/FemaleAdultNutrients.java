@@ -15,9 +15,9 @@
 
 package edu.ucalgary.ensf409;
 /**
-This class extends the abstract Nutrients class and retreives the nutrional requirment info for an average
-female adult from the database. The data is then also manipulated to accomdate the number of female adults in a
-certain hamper.
+* This class extends the abstract Nutrients class and retreives the nutrional requirment info for an average
+* female adult from the database. The data is then also manipulated to accomdate the number of female adults in a
+* certain hamper.
 */
 public class FemaleAdultNutrients extends Nutrients{
     private final static int CLIENTID = 2;

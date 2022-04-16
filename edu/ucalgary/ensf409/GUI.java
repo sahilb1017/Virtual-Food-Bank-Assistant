@@ -25,6 +25,10 @@ import java.util.Iterator;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 
+/**
+*This class creates the graphical user interface that is used to input hamper and order information. The class will open a
+*request form where the user will input their configurations into a form.
+*/
 public class GUI extends JFrame implements ActionListener{
     private JLabel titleOne;
     private JLabel titleTwo;

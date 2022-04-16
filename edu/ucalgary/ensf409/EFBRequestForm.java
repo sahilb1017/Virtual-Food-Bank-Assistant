@@ -17,7 +17,12 @@ package edu.ucalgary.ensf409;
 
 import java.awt.*;
 import javax.swing.*;
- 
+
+
+/**
+* This is the main class that will be run to execute this program. This is the class that
+* will run the GUI class, which will call upon other classes.
+*/
 public class EFBRequestForm {
 
     /**
