@@ -1,3 +1,18 @@
+/**
+@author Sahil Bhatt
+@author Harshal Patel
+@author Siwon Kim
+@author Abhiraam Manchiraju    
+
+<a href="mailto:sahil.bhatt@ucalgary.ca"> sahil.bhatt@ucalgary.ca</a>
+<a href="mailto:harshal.patel@ucalgary.ca"> harshal.patel@ucalgary.ca</a>
+<a href="mailto:siwon.kim@ucalgary.ca"> siwon.kim@ucalgary.ca</a>
+<a href="mailto:abhiraam.manchiraju@ucalgary.ca"> abhiraam.manchiraju@ucalgary.ca</a>
+
+@version 1.6
+@since 1.0
+*/
+
 package edu.ucalgary.ensf409;
 import java.util.ArrayList;
 
@@ -10,6 +25,14 @@ public class Hamper {
     private Totals total = new Totals();
     private HamperInventory inventory;
 
+
+     /*    
+    Method to create Hamper object
+    @params list , an int array holding the information of the confiuerations of the desired Hamper,index 0 for number of adul tMales, index 1 for number of adult females,
+    index 2 for the numer of children over 8 and index 3 for the number of children under 8
+    @params foods, The ArrayList of Food objects availible to be added to the Hampers
+    */
+
     public Hamper(int[] list, ArrayList<Food> foods) throws ItemNotFoundException, NotEnoughFoodException{
         this.numOfMaleAdults=list[0];
         this.numOfFemaleAdults=list[1];
@@ -20,29 +43,55 @@ public class Hamper {
         inventory.determineFoodNeeded();
     }
 
+    /*    
+    Method returns the number of MaleAdults registered from the User
+    */
+
     public int getNumMaleAdults(){
         return this.numOfMaleAdults;
     }
+
+    /*    
+    Method returns the number of FemaleAdults registered from the User
+    */
 
     public int getNumFemaleAdults(){
         return this.numOfFemaleAdults;
     }
 
+     /*    
+    Method returns the number of Children over 8 registered from the User
+    */
+
     public int getNumChildOver8(){
         return this.numOfChildOver8;
     }
 
+    /*    
+    Method returns the number of Children under 8 registered from the User
+    */
     public int getNumChildUnder8(){
         return this.numOfChildUnder8;
     }
 
+    /*    
+    Method returns the HamperIventory object
+    */
     public HamperInventory getInventory(){
         return this.inventory;
     }
 
+    /*    
+    Method returns the Total objects
+    */
+
     public Totals getTotals(){
         return this.total;
     }
+
+    /*    
+    Method to calculate the required nutrient feilds of the Hamper derived from the User input.
+    */
 
     private void calculateTotals(){
         MaleAdultNutrients maleAdult = new MaleAdultNutrients(this.numOfMaleAdults);
