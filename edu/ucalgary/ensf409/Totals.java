@@ -15,7 +15,7 @@
 
 package edu.ucalgary.ensf409;
 /**
-This class is used for finding the total nutritional requirements of each hamper in an order.
+ * This class is used for finding the total nutritional requirements of each hamper in an order.
 */
 public class Totals {
     private double totalGrains = 0;

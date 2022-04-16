@@ -17,7 +17,7 @@ package edu.ucalgary.ensf409;
 import java.util.ArrayList;
 
 /*
-*The Hamper class is used to store the information of each Hamper. 
+ * The Hamper class is used to store the information of each Hamper. 
 */
 public class Hamper {
     private int numOfMaleAdults;

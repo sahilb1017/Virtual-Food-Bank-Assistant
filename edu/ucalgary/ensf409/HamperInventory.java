@@ -16,9 +16,9 @@ package edu.ucalgary.ensf409;
 import java.util.*;
 
 /*
-*This class will find the most efficicent hamper of food items from the database while take into 
-*consideration the client's needs. Will also inform the client if not enough food are avalible to meet
-*their order's requirments.
+ * This class will find the most efficicent hamper of food items from the database while take into 
+ * consideration the client's needs. Will also inform the client if not enough food are avalible to meet
+ * their order's requirments.
 */
 public class HamperInventory{
     private ArrayList<ArrayList<String>> allFood = new ArrayList<ArrayList<String>>();

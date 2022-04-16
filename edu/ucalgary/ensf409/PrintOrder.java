@@ -17,7 +17,7 @@ package edu.ucalgary.ensf409;
 import java.util.*;
 import java.io.*;
 /**
-*This class will print the order form 
+ * This class will print the order form 
 */
 public class PrintOrder {
     FileWriter myWriter;

@@ -15,11 +15,11 @@
 
 package edu.ucalgary.ensf409;
 
-    /**
-    This class extends the abstract Nutrients class and retreives the nutrional requirment info for an average
-    child under 8 from the database. The data is then also manipulated to accomdate the number of under 8 children in a
-    certain hamper.
-    */
+/**
+ * This class extends the abstract Nutrients class and retreives the nutrional requirment info for an average
+ * child under 8 from the database. The data is then also manipulated to accomdate the number of under 8 children in a
+ * certain hamper.
+*/
 public class ChildUnder8Nutrients extends Nutrients{
     private final static int CLIENTID = 4;
     private int numChildUnder8;
