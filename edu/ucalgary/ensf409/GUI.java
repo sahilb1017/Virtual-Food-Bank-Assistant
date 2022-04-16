@@ -20,11 +20,12 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 
 public class GUI extends JFrame implements ActionListener{
-    
     private JLabel titleOne;
     private JLabel titleTwo;
     private JLabel subheading;
@@ -58,6 +59,7 @@ public class GUI extends JFrame implements ActionListener{
         super("Example Food Bank Hamper Request Form");
         initializeGUI();
     }
+
 
     /**
      * Method that is reponsible for displaying all of the components onto the GUI that the user will see and 
@@ -400,6 +402,7 @@ public class GUI extends JFrame implements ActionListener{
         pack();
     }   
 
+
     /**
      * Method that determines what button is pressed, and calls its corresponding method that deals with 
      * that button's functionality
@@ -422,6 +425,7 @@ public class GUI extends JFrame implements ActionListener{
             submitOrderButtonPressed(e);
     }
 
+
     /**
      * Method deals with the functionality of the "Clear All Hampers" button.
      * @param e ActionEvent object that represents the action performed on the "Clear All Hampers" button
@@ -436,7 +440,8 @@ public class GUI extends JFrame implements ActionListener{
 
         //Removing all the row in the table, which cleaer all the hampers
         table.setRowCount(0);
-    }                                                  
+    }   
+
 
     /**
      * Method deals with the functionality of the "Add Hamper Configuration" button.
@@ -495,6 +500,7 @@ public class GUI extends JFrame implements ActionListener{
         childrenUnder8Input.setText("");
     }
     
+
     /**
      * Method deals with the functionality of the "Delete Hamper(s)" button.
      * @param e ActionEvent object that represents the action performed on the "Delete Hamper(s)" button
@@ -517,6 +523,7 @@ public class GUI extends JFrame implements ActionListener{
             }
         }
     } 
+    
     
     /**
      * Method deals with the functionality of the "Clear Input" button.
@@ -563,8 +570,11 @@ public class GUI extends JFrame implements ActionListener{
             return;
         }
 
+        //Get message to be displayed on confirmation
+        String msg = getConfirmationMsg(order);
+
         //Display success message is order goes through
-        JOptionPane.showMessageDialog(this, "Order Successful!");
+        JOptionPane.showMessageDialog(this, msg);
 
         //Write order to text file
         PrintOrder print = new PrintOrder(order);
@@ -574,5 +584,35 @@ public class GUI extends JFrame implements ActionListener{
 
         //Reset table cells
         table.setRowCount(0);
-    }            
+    }  
+    
+
+    /**
+     * Method that produces a confirmation to be displayed to the user upon a successful order completion
+     * @param order Order object that contains the relavent hampers requested by the user
+    */ 
+    private String getConfirmationMsg(Order order){
+        int counter = 1;
+        String msg = "Order Successful!" + '\n' + '\n';
+
+        //Loop through the order object
+        for(Hamper hmp: order.getHampers()){
+
+            //Write the hamper number
+            msg += ("Hamper "+ Integer.toString(counter++) +" Items"+"\n");
+            
+            //Create an iterator to iterate through the Arraylist of food iterms
+            Iterator<ArrayList<String>> iter = hmp.getInventory().getAllFood().iterator();
+            
+            //Loop through the foods for a certain hamper
+            while(iter.hasNext()){
+                ArrayList<String> current = iter.next();
+
+                //Add each food item to msg string
+                msg += (current.get(1) + "   " + current.get(0) + "\n" );
+            }
+            msg += '\n';    
+        }
+        return msg.trim();
+    } 
 }//End of class declaration

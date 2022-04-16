@@ -24,40 +24,48 @@ public class FemaleAdultNutrients extends Nutrients{
     private int numFemales;
     
     /**
-    This constructor takes an input of the amount of female adults in an hamper, and then sets the total nutrional requirements
-    for the adult females in that hamper.
-    @param amount The number of adult females in a hamper.
+     * This constructor takes an input of the amount of female adults in an hamper, and then sets the total nutrional requirements
+     * for the adult females in that hamper.
+     * @param amount The number of adult females in a hamper.
     */
     public FemaleAdultNutrients(int amount){
         this.numFemales = amount;
         findInfoFromDataBase();
     }
 
+
     /**
-    This method returns the number of adult females in a hamper.
+     * This method returns the number of adult females in a hamper.
+     * @param none
     */
     public int getNumFemale(){
         return this.numFemales;
     }
 
+
     /**
-    This method sets the number of adult females in a hamper, which is then used to find the total nutrional requirements for all the 
-    adult females in a hamper.
-    @param amount The amount of adult females in a hamper.
+     * This method sets the number of adult females in a hamper, which is then used to find the total nutrional requirements for all the 
+     * adult females in a hamper.
+     * @param amount The amount of adult females in a hamper.
     */
     public void setNumFemale(int amount){
         this.numFemales = amount;
     }
 
+
     /**
-    This method returns the client ID corresponding to the client type of an adult female.
+     * This method returns the client ID corresponding to the client type of an adult female.
+     * @param none
     */
     public int getClientId(){
         return FemaleAdultNutrients.CLIENTID;
     }
+
+    
     /**
-    This method retreives the nutrional info for an adult female through the database, and sets the nutrional requirements for a hamper based
-    on the number of adult females in the hamper. The methods used are extensions of the Nutrients class.
+     * This method retreives the nutrional info for an adult female through the database, and sets the nutrional requirements for a hamper based
+     * on the number of adult females in the hamper. The methods used are extensions of the Nutrients class.
+     * @param none
     */
     protected void findInfoFromDataBase(){
         Database db = this.getDB();
@@ -71,5 +79,5 @@ public class FemaleAdultNutrients extends Nutrients{
         this.setCalories((double)values[4]);
         db.close();
     }
-}
+}//End of Class Declaration
 

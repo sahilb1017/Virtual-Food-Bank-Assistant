@@ -45,4 +45,4 @@ public class EFBRequestForm {
                 new GUI().setVisible(true);
         });
     }
-}
+}//End of Class Declaration

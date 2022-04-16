@@ -20,22 +20,21 @@ public class HamperInventory{
     private Totals total;
     private ArrayList<Food> availableFoods;
 
-    /*
-    Constructor for the Hamper Inventory object
-    @params totals, The object holding the nutrients requirments of the hamper
-    @param foods, the ArrayList of avalible food objects to put into the hamper
+    /**
+     * Constructor for the Hamper Inventory object
+     * @param totals, The object holding the nutrients requirments of the hamper
+     * @param foods, the ArrayList of avalible food objects to put into the hamper
     */
-    
     public HamperInventory(Totals total, ArrayList<Food> foods){
         this.total = total;
         this.availableFoods = foods;
     }
 
-    /*
-    Method to find the Most efficient Food combination from the availible food list and add to the hamper while meeting the requriments.
+
+    /**
+     * Method to find the Most efficient Food combination from the availible food list and add to the hamper while meeting the requriments.
+     * @param none
     */
-
-
     public void determineFoodNeeded() throws NotEnoughFoodException {
         ArrayList<Food[]> hampers = new ArrayList<Food[]>();
         
@@ -52,7 +51,6 @@ public class HamperInventory{
         Food[][] result = new Food[max][];
 
         //Find the powerset of food objects from the ArrayList Availible foods
-
         for (int i = 0; i < max; ++i){
             result[i] = new Food[Integer.bitCount(i)];
             for (int j = 0, b = i, k = 0; j < this.availableFoods.size(); ++j, b >>= 1){
@@ -86,9 +84,10 @@ public class HamperInventory{
         formatHamper(finalHamper);
     }
 
-    /*
-    Method to find the hamper with the least amount of calories(most efficient) from a list of possible Hampers
-    @params hampers, the List of possible Hampers that met the requirments
+
+    /**
+     * Method to find the hamper with the least amount of calories(most efficient) from a list of possible Hampers
+     * @param hampers List of possible Hampers that met the requirments
     */
     public Food[] findHamper(ArrayList<Food[]> hampers){
         int key = 0;
@@ -112,9 +111,10 @@ public class HamperInventory{
         return hampers.get(key);
     }
 
-    /*
-    Method to format Hamper into double ArrayList with contating the FoodId and Food name for each Food object from the choosen hamper
-     @params hamper, the choosen hamper 
+
+    /**
+     * Method to format Hamper into double ArrayList with contating the FoodId and Food name for each Food object from the choosen hamper
+     * @param hamper the chosen hamper 
     */
     public void formatHamper(Food[] hamper){
         for(int i = 0; i < hamper.length; i++){
@@ -126,9 +126,9 @@ public class HamperInventory{
     }
  
 
-    /*
-    Method to check if there are enough foods from the avaliblefood arraylist to make the Hamper that meet the requirments
-    @params hampersList, the List of possible Hampers that met the requirments
+    /**
+     * Method to check if there are enough foods from the avaliblefood arraylist to make the Hamper that meet the requirments
+     * @param hampersList List of possible Hampers that met the requirments
     */
     private void checkException(ArrayList<Food[]> hampersList) throws NotEnoughFoodException{
         int counter = 0;
@@ -141,11 +141,12 @@ public class HamperInventory{
             throw new NotEnoughFoodException();
     }
 
-    /*
-    Method to return the choosen Hamper
-    */
 
+    /**
+     * Method to return the choosen Hamper
+     * @param none
+    */
     public ArrayList<ArrayList<String>> getAllFood(){
         return this.allFood;
     }
-}
+}//End of class declaration

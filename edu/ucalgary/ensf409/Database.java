@@ -13,7 +13,6 @@
 @since 1.0
 */
 
-
 package edu.ucalgary.ensf409;
 import java.sql.*;
 import java.util.ArrayList;
@@ -30,7 +29,6 @@ public class Database {
      * of the database. Calls initializeConnection() which sets up a connection to the database
      * @param none
     */
-    
     public Database(){
         // Database URL
         this.DBURL = "jdbc:mysql://localhost/food_inventory";
@@ -40,6 +38,7 @@ public class Database {
 
         initializeConnection();
     }
+
 
     /**
      * This method initializes the connection to the database with variables set in the class
@@ -55,11 +54,11 @@ public class Database {
         }
     }
 
+
     /**
      * This method initializes the connection to the database with variables set in the class
      * @param clientID Integer from 1-4 that represents the type of client
     */
-
     public int[] getClientNeeds(int clientID){
         int[] values = new int[5];
         String[] types = {"WholeGrains", "FruitVeggies", "Protein", "Other", "Calories"};
@@ -85,6 +84,7 @@ public class Database {
         }
         return values;
     }
+
 
     /**
      * This method accesses the database and obtains all of the food from the "AVAILABLE_FOOD"
@@ -125,6 +125,7 @@ public class Database {
         return allFoods;
     }
 
+
     /**
      * This method takes in an itemID, finds the food that matches that ID, and removes that
      * food from the database
@@ -146,6 +147,7 @@ public class Database {
         }
     }
 
+    
     /**
      * This method closes the connection to the database
      * @param none
@@ -158,4 +160,4 @@ public class Database {
             ex.printStackTrace();
         }
     } 
-}
+}//End of Class Declaration

@@ -24,41 +24,48 @@ public class ChildOver8Nutrients extends Nutrients{
     private int numChildOver8;
     
     /**
-    This constructor takes an input of the amount of children over 8 in an hamper, and then sets the total nutrional requirements
-    for the over 8 children in that hamper.
-    @param amount The number of over 8 children in a hamper.
+     * This constructor takes an input of the amount of children over 8 in an hamper, and then sets the total nutrional requirements
+     * for the over 8 children in that hamper.
+     * @param amount The number of over 8 children in a hamper.
     */
     public ChildOver8Nutrients(int amount){
         this.numChildOver8 = amount;
         findInfoFromDataBase();
     }
 
+
     /**
-    This method returns the number of chidren over 8 in a hamper.
+     * This method returns the number of chidren over 8 in a hamper.
+     * @param none
     */
     public int getNumChildOver8(){
         return this.numChildOver8;
     }
 
+
     /**
-    This method sets the number of children over 8 in a hamper, which is then used to find the total nutrional requirements for all the 
-    over 8 chidren in a hamper.
-    @param amount The amount of children over 8 in a hamper.
+     * This method sets the number of children over 8 in a hamper, which is then used to find the total nutrional requirements for all the 
+     * over 8 chidren in a hamper.
+     * @param amount The amount of children over 8 in a hamper.
     */  
     public void setNumChildOver8(int amount){
         this.numChildOver8 = amount;
     }
 
+
     /**
-    This method returns the client ID corresponding to the client type of a child over 8.
+     * This method returns the client ID corresponding to the client type of a child over 8.
+     * @param none
     */
     public int getClientId(){
         return ChildOver8Nutrients.CLIENTID;
     }
 
+    
     /**
-    This method retreives the nutrional info for a child over 8 through the database, and sets the nutrional requirements for a hamper based
-    on the number of over 8 children in the hamper. The methods used are extensions of the Nutrients class.
+     * This method retreives the nutrional info for a child over 8 through the database, and sets the nutrional requirements for a hamper based
+     * on the number of over 8 children in the hamper. The methods used are extensions of the Nutrients class.
+     * @param none
     */
     protected void findInfoFromDataBase(){
         Database db = this.getDB();
@@ -72,4 +79,4 @@ public class ChildOver8Nutrients extends Nutrients{
         this.setCalories(values[4]);
         db.close();
     }
-}
+}//End of Class Declaration

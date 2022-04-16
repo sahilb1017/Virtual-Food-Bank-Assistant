@@ -25,15 +25,13 @@ public class Hamper {
     private Totals total = new Totals();
     private HamperInventory inventory;
 
-
-     /*    
-    Method to create Hamper object
-    @params list , an int array holding the information of the confiuerations of the desired Hamper,index 0 for number of adul tMales, index 1 for number of adult females,
-    index 2 for the numer of children over 8 and index 3 for the number of children under 8
-    @params foods, The ArrayList of Food objects availible to be added to the Hampers
+    /**
+     * Method to create Hamper object
+     * @param list an int array holding the information of the confiuerations of the desired Hamper,index 0 for number of adultMales, 
+     * index 1 for number of adult females, index 2 for the numer of children over 8 and index 3 for the number of children under 8
+     * @param foods, The ArrayList of Food objects availible to be added to the Hampers
     */
-
-    public Hamper(int[] list, ArrayList<Food> foods) throws ItemNotFoundException, NotEnoughFoodException{
+    public Hamper(int[] list, ArrayList<Food> foods) throws NotEnoughFoodException{
         this.numOfMaleAdults=list[0];
         this.numOfFemaleAdults=list[1];
         this.numOfChildOver8 = list[2];
@@ -43,56 +41,64 @@ public class Hamper {
         inventory.determineFoodNeeded();
     }
 
-    /*    
-    Method returns the number of MaleAdults registered from the User
+    
+    /**  
+     * Method returns the number of MaleAdults registered from the User
+     * @param none
     */
-
     public int getNumMaleAdults(){
         return this.numOfMaleAdults;
     }
 
-    /*    
-    Method returns the number of FemaleAdults registered from the User
-    */
 
+    /**    
+     * Method returns the number of FemaleAdults registered from the User
+     * @param none
+    */
     public int getNumFemaleAdults(){
         return this.numOfFemaleAdults;
     }
 
-     /*    
-    Method returns the number of Children over 8 registered from the User
-    */
 
+     /**    
+      * Method returns the number of Children over 8 registered from the User
+      * @param none
+    */
     public int getNumChildOver8(){
         return this.numOfChildOver8;
     }
 
-    /*    
-    Method returns the number of Children under 8 registered from the User
+
+    /**   
+     * Method returns the number of Children under 8 registered from the User
+     * @param none
     */
     public int getNumChildUnder8(){
         return this.numOfChildUnder8;
     }
 
-    /*    
-    Method returns the HamperIventory object
+
+    /**    
+     * Method returns the HamperIventory object
+     * @param none
     */
     public HamperInventory getInventory(){
         return this.inventory;
     }
 
-    /*    
-    Method returns the Total objects
-    */
 
+    /**    
+     * Method returns the Total objects
+     * @param none
+    */
     public Totals getTotals(){
         return this.total;
     }
 
-    /*    
-    Method to calculate the required nutrient feilds of the Hamper derived from the User input.
+    /**    
+     * Method to calculate the required nutrient feilds of the Hamper derived from the User input.
+     * @param none
     */
-
     private void calculateTotals(){
         MaleAdultNutrients maleAdult = new MaleAdultNutrients(this.numOfMaleAdults);
         FemaleAdultNutrients femaleAdult = new FemaleAdultNutrients(this.numOfFemaleAdults);
@@ -124,4 +130,4 @@ public class Hamper {
         this.total.addToCalories(childOver8.getCalories());
         this.total.addToCalories(childUnder8.getCalories());
     }
-}
+}//End of class declaration

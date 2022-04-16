@@ -21,31 +21,26 @@ public class PrintOrder {
     FileWriter myWriter;
 
     /**
-     * The constructor that initializes the URL of the file that will be written to.Calls 
+     * The constructor that initializes the URL of the file that will be written to. Calls 
      * hamperRequestInfo that writes out the information of the hampers that were
      * requested
      * @param value Order object that contains the hampers
     */
     public PrintOrder(Order value){
-
         try{
-        myWriter = new FileWriter("edu/ucalgary/ensf409/OrderForm.txt");
+            myWriter = new FileWriter("OrderForm.txt");
         }catch(IOException e){}
-        
-        hamperRequestInfo(value);  
+        hamperRequestInfo(value);
     }
+
 
     /**
     * This method prints out the title and general information of the hamper form, along
     * with all the hamper requests that were made in the form.
     * @param value Order object that contains the hampers 
     */
-        
     public void hamperRequestInfo(Order value){
-        
-        
         try{
-
             int counter = 1;
 
             //Write general information about order form
@@ -58,7 +53,6 @@ public class PrintOrder {
     
             //Loop through each hamper request in the order
             for(Hamper hmp: value.getHampers()){
-
                 
                 String temp = "";
                 temp += "Hamper " + Integer.toString(counter++) + ": ";
@@ -85,12 +79,10 @@ public class PrintOrder {
 
                 //Removes extra comma
                 temp = temp.replaceAll(", $", "");
-
                 temp+= "\n";
                 
                 //Write entire string to the order form
                 myWriter.write(temp);
-
             }
             myWriter.write("\n");
             
@@ -99,14 +91,13 @@ public class PrintOrder {
         }catch(IOException e){}
     }
 
+    
     /**
      * This method will loop through the order object, and write all of the foods that have been
      * retrieved for a particular hamper to the text file
      * @param value Order object that contains the hampers
     */
-
     public void orderForm(Order value){
-        
         try{
             int counter = 1;
 
@@ -126,14 +117,9 @@ public class PrintOrder {
                     //Write the food item to text file
                     myWriter.write(current.get(1)+"\t\t"+ current.get(0) + "\n" );
                 }
-                
-                myWriter.write("\n");
-
-                
+                myWriter.write("\n");    
             }
             myWriter.close();
-
-
         }catch(IOException e){}
     }
-}
+}//End of Class Declaration
