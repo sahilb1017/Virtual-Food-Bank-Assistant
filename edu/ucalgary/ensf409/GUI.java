@@ -489,7 +489,7 @@ public class GUI extends JFrame implements ActionListener{
             if(malesInt < 0 || femalesInt < 0 || childrenOv8Int < 0 || childrenUn8Int < 0)
                 throw new IllegalArgumentException();
         }catch(Exception er){
-            JOptionPane.showMessageDialog(this, "Please make sure all fields contain only a POSITIVE numerical value!","Error!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please make sure all fields contain only a POSITIVE whole number!","Error!", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
