@@ -16,13 +16,16 @@
 package edu.ucalgary.ensf409;
 import java.util.ArrayList;
 
+/*
+*The Hamper class is used to store the information of each Hamper. 
+*/
 public class Hamper {
     private int numOfMaleAdults;
     private int numOfFemaleAdults;
     private int numOfChildOver8;
     private int numOfChildUnder8;
 
-    private Totals total = new Totals();
+    private Totals total;
     private HamperInventory inventory;
 
     /**
@@ -41,7 +44,6 @@ public class Hamper {
         inventory.determineFoodNeeded();
     }
 
-    
     /**  
      * Method returns the number of MaleAdults registered from the User
      * @param none
@@ -49,7 +51,6 @@ public class Hamper {
     public int getNumMaleAdults(){
         return this.numOfMaleAdults;
     }
-
 
     /**    
      * Method returns the number of FemaleAdults registered from the User
@@ -59,7 +60,6 @@ public class Hamper {
         return this.numOfFemaleAdults;
     }
 
-
      /**    
       * Method returns the number of Children over 8 registered from the User
       * @param none
@@ -67,7 +67,6 @@ public class Hamper {
     public int getNumChildOver8(){
         return this.numOfChildOver8;
     }
-
 
     /**   
      * Method returns the number of Children under 8 registered from the User
@@ -77,7 +76,6 @@ public class Hamper {
         return this.numOfChildUnder8;
     }
 
-
     /**    
      * Method returns the HamperIventory object
      * @param none
@@ -85,7 +83,6 @@ public class Hamper {
     public HamperInventory getInventory(){
         return this.inventory;
     }
-
 
     /**    
      * Method returns the Total objects
@@ -96,10 +93,60 @@ public class Hamper {
     }
 
     /**    
+     * Method that sets the total object
+     * @param total An instance of the total object
+    */
+    public void setTotal(Totals total){
+        this.total = total;
+    }
+
+    /**    
+     * Method that sets the number of children over 8
+     * @param numberofChildOver8 Number of children over 8
+    */
+    public void setNumOfChildOver8(int numOfChildOver8) {
+        this.numOfChildOver8 = numOfChildOver8;
+    }
+
+    /**    
+     * Method that sets the inventory
+     * @param inventory HamperInventory object representing the food inventory
+    */
+    public void setInventory(HamperInventory inventory) {
+        this.inventory = inventory;
+    }
+
+    /**    
+     * Method that sets the number of children under 8
+     * @param numberofChildUnder8 Number of children under 8
+    */
+    public void setNumOfChildUnder8(int numOfChildUnder8) {
+        this.numOfChildUnder8 = numOfChildUnder8;
+    }
+
+    /**    
+     * Method that sets the number of female adults 
+     * @param numOfFemaleAdults Number of female adults
+    */
+    public void setNumOfFemaleAdults(int numOfFemaleAdults) {
+        this.numOfFemaleAdults = numOfFemaleAdults;
+    }
+
+    /**    
+     * Method that sets the number of male adults 
+     * @param numOfMaleAdults Number of male adults
+    */
+    public void setNumOfMaleAdults(int numOfMaleAdults) {
+        this.numOfMaleAdults = numOfMaleAdults;
+    }
+
+    /**    
      * Method to calculate the required nutrient feilds of the Hamper derived from the User input.
      * @param none
     */
     private void calculateTotals(){
+
+        this.total = new Totals();
         MaleAdultNutrients maleAdult = new MaleAdultNutrients(this.numOfMaleAdults);
         FemaleAdultNutrients femaleAdult = new FemaleAdultNutrients(this.numOfFemaleAdults);
         ChildOver8Nutrients childOver8 = new ChildOver8Nutrients(this.numOfChildOver8);

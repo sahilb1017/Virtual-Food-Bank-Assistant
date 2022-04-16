@@ -15,9 +15,9 @@
 
 package edu.ucalgary.ensf409;
 /**
-This class is an abstract class used for retrieving the nutrients and nutrional 
-requirements of the clients and the items in the database. It is 
-extended by each of the individual client type classes FemaleAdultNutrients.etc
+*This class is an abstract class used for retrieving the nutrional 
+*requirements of the clients and the nutritional content of the items in the database. 
+*It is extended by each of the individual client type classes along with the Food class.
 */
 public abstract class Nutrients {
     private double wholeGrains;

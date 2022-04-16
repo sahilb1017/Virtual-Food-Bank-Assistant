@@ -16,6 +16,12 @@
 package edu.ucalgary.ensf409;
 import java.sql.*;
 import java.util.ArrayList;
+
+/**
+ * The database class that is reponsible for setting up a connection to the database,
+ * and retrieving any information needed from the database. This class will also remove
+ * items from the database once they're used in a hamper.
+ */
 public class Database {
     public final String DBURL;
     public final String USERNAME;
