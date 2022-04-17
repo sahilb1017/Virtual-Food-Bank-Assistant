@@ -31,7 +31,6 @@ public class MaleAdultNutrients extends Nutrients{
     */
     public MaleAdultNutrients(int amount){
         this.numMales = amount;
-        findInfoFromDataBase();
     }
 
 
@@ -59,7 +58,7 @@ public class MaleAdultNutrients extends Nutrients{
      * This method returns the client ID corresponding to the client type of an adult male.
      * 
     */
-    public int getClientId(){
+    public static int getClientId(){
         return MaleAdultNutrients.CLIENTID;
     }
 
@@ -70,7 +69,7 @@ public class MaleAdultNutrients extends Nutrients{
      * @param none
     */
     protected void findInfoFromDataBase(){
-        Database db = this.getDB();
+        Database db = this.establishDB();
         int[] values = db.getClientNeeds(MaleAdultNutrients.CLIENTID);
 
         //Performing the calculations for the needed nutrients in one week

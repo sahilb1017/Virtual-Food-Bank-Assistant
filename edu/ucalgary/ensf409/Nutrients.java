@@ -25,7 +25,7 @@ public abstract class Nutrients {
     private double proteins;
     private double others;
     private double calories;
-    private Database db = new Database();
+    private Database db;
 
     /**
      * Default constructor
@@ -127,7 +127,8 @@ public abstract class Nutrients {
      * the nutritional content of a certain food.
      * @param none
     */
-    public Database getDB(){
+    public Database establishDB(){
+        this.db = new Database();
         return this.db;
     }
     

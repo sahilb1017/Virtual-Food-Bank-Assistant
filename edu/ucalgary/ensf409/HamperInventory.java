@@ -154,4 +154,22 @@ public class HamperInventory{
     public ArrayList<ArrayList<String>> getAllFood(){
         return this.allFood;
     }
+
+
+    /**
+     * Method to return the list of available foods
+     * @param none
+    */
+    public ArrayList<Food> getAvailableFoods(){
+        return this.availableFoods;
+    }
+
+
+    /**
+     * Method to return Totals object
+     * @param none
+    */
+    public Totals getTotals(){
+        return this.total;
+    }
 }//End of class declaration

@@ -547,6 +547,13 @@ public class GUI extends JFrame implements ActionListener{
     */ 
     private void submitOrderButtonPressed(ActionEvent e) {    
         DefaultTableModel table = (DefaultTableModel)hamperOrderTable.getModel();
+
+        //If user enters no hampers, show error message and allow them to reinput data
+        if(table.getRowCount() == 0){
+            JOptionPane.showMessageDialog(this, "Please add at least one hamper before submitting your request!","Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         //Method that will retrieve the contents of the table
         Vector<Vector> tableData = table.getDataVector();
         
@@ -555,6 +562,7 @@ public class GUI extends JFrame implements ActionListener{
         
         //Create an order object
         Order order = new Order();
+        order.useDatabase();
 
         //Loop that stores all of the contents from the table into userData
         for(int i = 0; i < tableData.size(); i++){
@@ -565,7 +573,10 @@ public class GUI extends JFrame implements ActionListener{
         //Add the hamper configuration to the order object if it can be found.
         try{
             for(int i = 0; i < userData.length; i++)
-                order.addHamper(userData[i]);  
+                order.addHamper(userData[i]);
+                order.calculateTotals();
+                order.determineFoodNeeded();
+                order.removeFoodsLocal(order.getHamper(order.getHampers().size() - 1).getInventory().getAllFood());  
         }
 
         //If a hamper configuration cannot be found with the existing foods in the database, then an error message will pop up

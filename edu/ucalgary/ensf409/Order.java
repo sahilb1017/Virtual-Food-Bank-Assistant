@@ -28,22 +28,18 @@ public class Order {
      * Will gather all the availible foods from the dataBase and put it it into an arrayList of Food Objects
      * @param none
     */
-    public Order(){
-        Database db = new Database();
-        availableFood = db.getAvailableFood();
-        db.close();
-    }
+    public Order(){}
+
 
     /**  
      * Method to add Hamper objects to the order
      * @param list An int array holding the information of the configurations of the desired hamper, index 0 for number of adult Males, index 1 for number of adult females,
      * index 2 for the numer of children over 8 and index 3 for the number of children under 8
     */
-    public void addHamper(int[] list) throws NotEnoughFoodException{
+    public void addHamper(int[] list){
         hampers.add(new Hamper(list, availableFood));
-        ArrayList<ArrayList<String>> tempList = hampers.get(hampers.size() - 1).getInventory().getAllFood();
-        removeFoodsLocal(tempList);
     }
+
 
     /**
      * Method to return the ArrayList of Hampers 
@@ -52,6 +48,7 @@ public class Order {
     public ArrayList<Hamper> getHampers(){
         return this.hampers;
     }
+
 
     /**
      * Method to set hamper
@@ -62,16 +59,58 @@ public class Order {
     }
 
     /** 
-    *Method to get hamper at a specific index
-    *@param index The index from the hamper arraylist that should be returned
+     * Method to get hamper at a specific index
+     * @param index The index from the hamper arraylist that should be returned
     */
     public Hamper getHamper(int index){
         return this.hampers.get(index);    
     }
 
+
+    /** 
+     * Method to set list of avaliable foods
+     * @param food ArrayList of Food objects consisting of availabl foods
+    */
+    public void setAvailableFoods(ArrayList<Food> food){
+        this.availableFood = food;
+    }
+
+    /** 
+     * Method to return list of avaliable foods
+     * @param food ArrayList of Food objects consisting of availabl foods
+    */
+    public ArrayList<Food> getAvailableFoods(){
+        return this.availableFood;
+    }
+
+    /** 
+     * Method that calls calculateTotals() for the most recent Hamper
+     * @param none
+    */
+    public void calculateTotals(){
+        hampers.get(hampers.size() - 1).calculateTotals();
+    }
+
+
+    /** 
+     * Method that calls determineFoodNeeded() in the most recent Hamper
+     * @param none
+    */
+    public void determineFoodNeeded() throws NotEnoughFoodException{
+        hampers.get(hampers.size() - 1).determineFoodNeeded();
+    }
+
+
+    public void useDatabase(){
+        Database db = new Database();
+        availableFood = db.getAvailableFood();
+        db.close();
+    }
+
+
     /**
-    *Method to remove food object from arraylist of availible foods locally after those food objects get added to hamper
-    *@param foods The most recend hamper made from the program
+     * Method to remove food object from arraylist of availible foods locally after those food objects get added to hamper
+     * @param foods The most recend hamper made from the program
     */
     public void removeFoodsLocal(ArrayList<ArrayList<String>> foods){
         for(int i = 0; i < foods.size(); i++){
@@ -85,6 +124,7 @@ public class Order {
         }
     }
     
+
     /**
     * Method to remove food from the data base after the order is completed
     * @param none

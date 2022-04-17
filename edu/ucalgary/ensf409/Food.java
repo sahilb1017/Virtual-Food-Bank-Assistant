@@ -34,7 +34,7 @@ public class Food extends Nutrients{
      * @param other -The other nutrtional content of an item in the database, in terms of caloric percentage.
      * @param calories The caloric content of an item in the database.
     */ 
-    public Food(int ItemID,String ItemName, double grain, double fv, double protein, double other, double calories){
+    public Food(int ItemID,String itemName, double grain, double fv, double protein, double other, double calories){
         //Converting the nutrional contents from a percentage to a doube, and setting the item id and name
         this.setWholeGrain(( grain / 100) * calories);
         this.setFruitsVeggies((fv / 100) * calories);
@@ -42,7 +42,7 @@ public class Food extends Nutrients{
         this.setOther((other / 100) * calories);
         this.setCalories(calories);
         this.ITEMID = ItemID;
-        this.ITEMNAME = ItemName;
+        this.ITEMNAME = itemName;
     }
 
 
@@ -65,7 +65,7 @@ public class Food extends Nutrients{
 
 
     /**
-     * This method retrieves the nutrional info of an item in the database.
+     * This method does not need to do anything in the Food class
     */	
     protected void findInfoFromDataBase(){}
 }//End of Class Declaration

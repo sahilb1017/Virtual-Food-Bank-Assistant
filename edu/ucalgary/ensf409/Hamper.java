@@ -24,9 +24,9 @@ public class Hamper {
     private int numOfFemaleAdults;
     private int numOfChildOver8;
     private int numOfChildUnder8;
-
     private Totals total;
     private HamperInventory inventory;
+    private ArrayList<Food> availableFoods;
 
     /**
      * Method to create Hamper object
@@ -34,14 +34,12 @@ public class Hamper {
      * index 1 for number of adult females, index 2 for the numer of children over 8 and index 3 for the number of children under 8
      * @param foods, The ArrayList of Food objects availible to be added to the Hampers
     */
-    public Hamper(int[] list, ArrayList<Food> foods) throws NotEnoughFoodException{
+    public Hamper(int[] list, ArrayList<Food> foods){
         this.numOfMaleAdults=list[0];
         this.numOfFemaleAdults=list[1];
         this.numOfChildOver8 = list[2];
         this.numOfChildUnder8 = list[3];
-        calculateTotals();
-        inventory = new HamperInventory(this.total, foods);
-        inventory.determineFoodNeeded();
+        this.availableFoods = foods;
     }
 
     /**  
@@ -92,6 +90,10 @@ public class Hamper {
         return this.total;
     }
 
+    public ArrayList<Food> getAvailableFoods(){
+        return this.availableFoods;
+    }
+
     /**    
      * Method that sets the total object
      * @param total An instance of the total object
@@ -140,17 +142,34 @@ public class Hamper {
         this.numOfMaleAdults = numOfMaleAdults;
     }
 
+
+    /**    
+     * Method that calls determineFoodNeeded() in the HamperInvetory class.
+     * @param none
+    */
+    public void determineFoodNeeded() throws NotEnoughFoodException{
+        inventory = new HamperInventory(this.total, this.availableFoods);
+        inventory.determineFoodNeeded();
+    }
+
+
     /**    
      * Method to calculate the required nutrient feilds of the Hamper derived from the User input.
      * @param none
     */
-    private void calculateTotals(){
-
+    public void calculateTotals(){
         this.total = new Totals();
+        //Initialize Client classes with number of each client
         MaleAdultNutrients maleAdult = new MaleAdultNutrients(this.numOfMaleAdults);
         FemaleAdultNutrients femaleAdult = new FemaleAdultNutrients(this.numOfFemaleAdults);
         ChildOver8Nutrients childOver8 = new ChildOver8Nutrients(this.numOfChildOver8);
         ChildUnder8Nutrients childUnder8 = new ChildUnder8Nutrients(this.numOfChildUnder8);
+
+        //Get info from database
+        maleAdult.findInfoFromDataBase();
+        femaleAdult.findInfoFromDataBase();
+        childOver8.findInfoFromDataBase();
+        childUnder8.findInfoFromDataBase();
  
         this.total.addToGrain(maleAdult.getWholeGrains());
         this.total.addToGrain(femaleAdult.getWholeGrains());

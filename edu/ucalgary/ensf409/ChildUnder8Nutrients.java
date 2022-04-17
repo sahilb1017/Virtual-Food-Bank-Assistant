@@ -31,7 +31,6 @@ public class ChildUnder8Nutrients extends Nutrients{
     */
     public ChildUnder8Nutrients(int amount){
         this.numChildUnder8 = amount;
-        findInfoFromDataBase();
     }
 
 
@@ -57,7 +56,7 @@ public class ChildUnder8Nutrients extends Nutrients{
     /**
      * This method returns the client ID corresponding to the client type of a child under 8.
     */
-    public int getClientId(){
+    public static int getClientId(){
         return ChildUnder8Nutrients.CLIENTID;
     }
 
@@ -68,7 +67,7 @@ public class ChildUnder8Nutrients extends Nutrients{
      * @param none
     */
     protected void findInfoFromDataBase(){
-        Database db = this.getDB();
+        Database db = this.establishDB();
         int[] values = db.getClientNeeds(ChildUnder8Nutrients.CLIENTID);
 
         //Performing the calculations for the needed nutrients in one week
