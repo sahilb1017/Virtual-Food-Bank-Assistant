@@ -90,6 +90,11 @@ public class Hamper {
         return this.total;
     }
 
+    /**    
+     * Method returns the ArrayList of available foods
+     * @param none
+    */
+
     public ArrayList<Food> getAvailableFoods(){
         return this.availableFoods;
     }
