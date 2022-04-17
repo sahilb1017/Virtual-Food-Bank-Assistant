@@ -572,27 +572,28 @@ public class GUI extends JFrame implements ActionListener{
 
         //Add the hamper configuration to the order object if it can be found.
         try{
-            for(int i = 0; i < userData.length; i++)
+            for(int i = 0; i < userData.length; i++){
                 order.addHamper(userData[i]);
                 order.calculateTotals();
                 order.determineFoodNeeded();
                 order.removeFoodsLocal(order.getHamper(order.getHampers().size() - 1).getInventory().getAllFood());  
+            }
         }
-
         //If a hamper configuration cannot be found with the existing foods in the database, then an error message will pop up
         catch(Exception er){
             JOptionPane.showMessageDialog(this, "There are no hampers to fulfill your requirements. Please check back later!","Error!", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
+
+         //Write order to text file
+        PrintOrder print = new PrintOrder(order);
+
         //Get message to be displayed on confirmation
         String msg = getConfirmationMsg(order);
 
         //Display success message is order goes through
         JOptionPane.showMessageDialog(this, msg);
-
-        //Write order to text file
-        PrintOrder print = new PrintOrder(order);
 
         //Remove all used foods in order from database
         order.removeFoodsDatabase();

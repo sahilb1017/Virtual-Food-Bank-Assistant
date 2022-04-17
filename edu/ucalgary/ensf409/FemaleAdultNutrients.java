@@ -37,7 +37,7 @@ public class FemaleAdultNutrients extends Nutrients{
      * This method returns the number of adult females in a hamper.
      * @param none
     */
-    public int getNumFemale(){
+    public int getNumFemales(){
         return this.numFemales;
     }
 
@@ -47,7 +47,7 @@ public class FemaleAdultNutrients extends Nutrients{
      * adult females in a hamper.
      * @param amount The amount of adult females in a hamper.
     */
-    public void setNumFemale(int amount){
+    public void setNumFemales(int amount){
         this.numFemales = amount;
     }
 
@@ -66,6 +66,7 @@ public class FemaleAdultNutrients extends Nutrients{
      * on the number of adult females in the hamper. The methods used are extensions of the Nutrients class.
      * @param none
     */
+    @Override
     protected void findInfoFromDataBase(){
         Database db = this.establishDB();
         int[] values = db.getClientNeeds(FemaleAdultNutrients.CLIENTID);

@@ -428,7 +428,7 @@ public class Tests{
         
         //Test each getter in the various client classes
         assertEquals("Incorrect Number of Males Adults", expectedNumberOfMales, maleClientObj.getNumMales());
-        assertEquals("Incorrect Number of Female Adults", expectedNumberOfFemales, femaleClientObj.getNumFemale());
+        assertEquals("Incorrect Number of Female Adults", expectedNumberOfFemales, femaleClientObj.getNumFemales());
         assertEquals("Incorrect Number of Children Over 8", expectedNumberOfChildrenOver8, childUnder8Obj.getNumChildOver8());
         assertEquals("Incorrect Number for a Children Under 8", expectedNumberOfChildrenUnder8, childOver8Obj.getNumChildUnder8());
     }

@@ -66,6 +66,7 @@ public class ChildUnder8Nutrients extends Nutrients{
      * on the number of under 8 children in the hamper. The methods used are extensions of the Nutrients class.
      * @param none
     */
+    @Override
     protected void findInfoFromDataBase(){
         Database db = this.establishDB();
         int[] values = db.getClientNeeds(ChildUnder8Nutrients.CLIENTID);
