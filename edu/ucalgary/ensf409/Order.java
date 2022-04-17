@@ -100,7 +100,11 @@ public class Order {
         hampers.get(hampers.size() - 1).determineFoodNeeded();
     }
 
-
+    /** 
+     * Method that calls calls upon the database class to get all the foods from the
+     * database
+     * @param none
+    */
     public void useDatabase(){
         Database db = new Database();
         availableFood = db.getAvailableFood();
